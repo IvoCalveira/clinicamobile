@@ -1,0 +1,7 @@
+{
+  "name": "ClinicaMobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
