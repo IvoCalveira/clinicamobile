@@ -1,0 +1,92 @@
+/* Fondo general */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #000000, #4b0082); /* Negro y morado */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Contenedor del login */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  /* Tarjeta de login */
+  .login-card {
+    background: #1c1c1c;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  /* Título */
+  .title {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #bb86fc;
+  }
+  
+  /* Grupo de inputs */
+  .input-group {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .input-group label {
+    font-size: 0.9rem;
+    color: #bb86fc;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 4px;
+    border: 1px solid #333;
+    background: #2b2b2b;
+    color: white;
+    font-size: 1rem;
+  }
+  
+  /* Botón de login */
+  .login-button {
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(135deg, #4b0082, #bb86fc); /* Morado degradado */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background: linear-gradient(135deg, #bb86fc, #4b0082);
+  }
+  
+  /* Pie de la tarjeta */
+  .footer {
+    margin-top: 1.5rem;
+  }
+  
+  .footer a {
+    color: #bb86fc;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
