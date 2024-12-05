@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../clases/usuario';
 import { jwtDecode } from 'jwt-decode';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  private APIURL:string =  "https://ivo_calveira2-clinicaapi.mdbgo.io";
+  private APIURL:string =  "https://calveira-clinicaapi.mdbgo.io";
 
   constructor(public http:HttpClient ) {
     //this.listaUsuario = JSON.parse(localStorage.getItem('usuario') || '[]');
