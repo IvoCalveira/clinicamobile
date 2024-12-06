@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { UsuarioService } from 'src/app/servicios/usuario.service';
+import { Usuario } from 'src/app/clases/usuario';
 
 
 @Component({
@@ -12,9 +14,40 @@ import { CommonModule } from '@angular/common';
   standalone: true,
 })
 export class PrincipalComponent  implements OnInit {
+  public listaUsuario: Usuario[] = [];
+  private route: Router = new Router;
+  public estaLogueado: boolean = false;
 
-  constructor() { }
+  constructor(public usuarioservices: UsuarioService) {
 
+
+
+    if (this.usuarioservices.usuarioLogueado.user != '') {
+      this.estaLogueado = true;
+      this.usuarioservices.estoyLogueado();
+
+
+
+    //Si hay, se guarda en listaUsuario el usuario que este logueado desde el LocalStorage
+    // this.listaUsuario = JSON.parse(localStorage.getItem('usuarioLogueado') || '[]');
+
+    //Verifico si hay un usuario logueado
+    //if(this.listaUsuario.length>0)
+    //  this.estaLogueado=true;
+  }
+}
+  public logout() {
+    //Vaciar el local storage de la sesion iniciada
+    localStorage.removeItem('UsuarioToken');
+
+
+    this.listaUsuario = [];
+    this.usuarioservices.usuarioLogueado = { nombre: '', apellido: '', mail: '', nacimiento: new Date(), user: '', password: '', tipo_usuario: 0, dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true };
+    this.estaLogueado = false;
+
+    this.route.navigateByUrl('/login');
+
+  }
   ngOnInit() {}
 
 }
