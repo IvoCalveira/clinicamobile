@@ -1,0 +1,39 @@
+<div class="forum-container">
+  <header class="forum-header">
+    <h1>Foro de Consultas</h1>
+    <button class="create-button" (click)="toggleCreateMode()">Crear Consulta</button>
+  </header>
+
+  <!-- Lista de consultas -->
+  <div class="forum-list">
+    <div *ngFor="let consulta of consultas" class="forum-item">
+      <h3>{{ consulta.asunto }}</h3>
+      <p>{{ consulta.mensaje }}</p>
+    </div>
+  </div>
+
+  <!-- Modal para crear consulta -->
+  <div class="modal" *ngIf="createMode">
+    <div class="modal-content">
+      <h2>Nueva Consulta</h2>
+      <form (ngSubmit)="addConsulta()">
+        <label for="asunto">Asunto:</label>
+        <input id="asunto" type="text" [(ngModel)]="newConsulta.asunto" name="asunto" required />
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea
+          id="mensaje"
+          [(ngModel)]="newConsulta.mensaje"
+          name="mensaje"
+          rows="4"
+          required
+        ></textarea>
+
+        <div class="modal-actions">
+          <button type="submit" class="submit-button">Publicar</button>
+          <button type="button" class="cancel-button" (click)="toggleCreateMode()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

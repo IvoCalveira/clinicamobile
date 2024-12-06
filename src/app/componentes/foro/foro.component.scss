@@ -1,0 +1,185 @@
+/* Modal contenedor */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Contenido del modal */
+  .modal-content {
+    background: #2c2c2c;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    max-width: 500px;
+    width: 90%;
+  }
+  
+  .modal-content h2 {
+    color: #bb86fc;
+    margin-bottom: 1rem;
+  }
+  
+  .modal-content label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+  }
+  
+  .modal-content input,
+  .modal-content textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #1c1c1c;
+    color: white;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .submit-button {
+    background: linear-gradient(135deg, #4b0082, #bb86fc);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s ease;
+  }
+  
+  .cancel-button {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .submit-button:hover {
+    transform: scale(1.05);
+  }
+  
+  .cancel-button:hover {
+    transform: scale(1.05);
+    background: #ff1a1a;
+  }
+  .forum-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #1c1c1c; /* Fondo oscuro */
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+  
+  /* Encabezado del foro */
+  .forum-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .forum-header h1 {
+    font-size: 2rem;
+    color: #bb86fc; /* Morado */
+  }
+  
+  .create-button {
+    background: linear-gradient(135deg, #4b0082, #bb86fc);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s ease;
+  }
+  
+  .create-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #bb86fc, #4b0082);
+  }
+  
+  /* Lista de consultas */
+  .forum-list {
+    margin-bottom: 2rem;
+  }
+  
+  .forum-item {
+    background: #2c2c2c;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .forum-item h3 {
+    margin: 0 0 0.5rem 0;
+    color: #bb86fc;
+  }
+  
+  .forum-item p {
+    margin: 0;
+    color: #ccc;
+  }
+  
+  /* Formulario para crear consultas */
+  .create-form {
+    background: #2c2c2c;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .create-form h2 {
+    color: #bb86fc;
+    margin-bottom: 1rem;
+  }
+  
+  .create-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+  }
+  
+  .create-form input,
+  .create-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #1c1c1c;
+    color: white;
+  }
+  
+  .create-form .submit-button {
+    background: linear-gradient(135deg, #4b0082, #bb86fc);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s ease;
+  }
+  
+  .create-form .submit-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #bb86fc, #4b0082);
+  }

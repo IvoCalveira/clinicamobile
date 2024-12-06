@@ -1,0 +1,74 @@
+/* Fondo general */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #000000, #4b0082); /* Negro y morado */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Contenedor principal */
+  .main-container {
+    text-align: center;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 12px;
+    background: #1c1c1c; /* Fondo de la tarjeta */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Encabezado */
+  .main-header {
+    margin-bottom: 2rem;
+  }
+  
+  .main-title {
+    font-size: 2.5rem;
+    color: #bb86fc; /* Morado */
+    margin: 0;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    color: #a1a1a1;
+  }
+  
+  /* Botones en vertical */
+  .button-group-vertical {
+    display: flex;
+    flex-direction: column; /* Botones en columna */
+    gap: 1.5rem; /* Espacio entre botones */
+    align-items: center;
+  }
+  
+  /* Botón general */
+  .action-button {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #4b0082, #bb86fc); /* Morado degradado */
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s ease;
+    width: 100%; /* Ajusta ancho para mayor consistencia */
+    max-width: 300px;
+  }
+  
+  .action-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #bb86fc, #4b0082);
+  }
+  
+  /* Botón Cerrar sesión */
+  .logout-button {
+    background: linear-gradient(135deg, #ff4b4b, #bb0000); /* Degradado rojo */
+  }
+  
+  .logout-button:hover {
+    background: linear-gradient(135deg, #bb0000, #ff4b4b);
+  }
+  

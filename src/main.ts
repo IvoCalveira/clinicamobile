@@ -7,6 +7,12 @@ import { AppComponent } from './app/app.component';
 import { LoginComponent } from './app/componentes/login/login.component';
 import { provideHttpClient } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { environment } from './environments/environment';
+
+
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -15,5 +21,13 @@ bootstrapApplication(AppComponent, {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideRouter(routes),
+    IonicModule,
+    // Inicializar Firebase
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // Inicializar Firestore
+    provideFirestore(() => getFirestore()),
   ],
+
+
 });
