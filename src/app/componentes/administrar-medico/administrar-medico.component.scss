@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #000000, #4b0082); /* Negro a morado */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .main-container {
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 12px;
+    background: #1c1c1c;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .main-header {
+    margin-bottom: 2rem;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+    color: #bb86fc;
+  }
+  
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .medico-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background: #262626;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .medico-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .medico-foto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .medico-details {
+    text-align: left;
+  }
+  
+  .medico-nombre {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #bb86fc;
+  }
+  
+  .medico-usuario,
+  .medico-especialidad {
+    font-size: 0.9rem;
+    color: #a1a1a1;
+  }
+  
+  .medico-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .btn-action {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s ease;
+  }
+  
+  .btn-autorizar {
+    background: linear-gradient(135deg, #4caf50, #2e7d32); /* Verde degradado */
+  }
+  
+  .btn-autorizar:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #2e7d32, #4caf50);
+  }
+  
+  .btn-desautorizar {
+    background: linear-gradient(135deg, #f44336, #d32f2f); /* Rojo degradado */
+  }
+  
+  .btn-desautorizar:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #d32f2f, #f44336);
+  }
+  
+  .btn-download {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #4b0082, #bb86fc);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s ease;
+  }
+  
+  .btn-download:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #bb86fc, #4b0082);
+  }
+  

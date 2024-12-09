@@ -42,4 +42,12 @@ export class UsuarioService {
     return this.http.post(this.APIURL  + "/insertar",usuario);
   }
 
+  public autorizarUsuario(usuario: Usuario) {
+    return this.http.post(this.APIURL + "/autorizar", usuario);
+  }
+
+  public autorizarMedico(usuario: Usuario[]) {
+    return this.http.post(this.APIURL + "/leer", usuario);
+  }
+
 }

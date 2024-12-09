@@ -6,6 +6,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RegistrarComponent } from './componentes/registrar/registrar.component';
+import { AdministrarMedicoComponent } from './componentes/administrar-medico/administrar-medico.component';
 
 export const routes: Routes = [
   {
@@ -25,7 +26,11 @@ export const routes: Routes = [
     },
     {
       path: 'registrar',
-      component: RegistrarComponent, // Página del foro
+      component: RegistrarComponent, 
+    },
+    {
+      path: 'administrar-medico',
+      component: AdministrarMedicoComponent, 
     },
 ];
 

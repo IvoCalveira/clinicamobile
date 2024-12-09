@@ -1,0 +1,36 @@
+<div class="main-container">
+  <header class="main-header">
+    <h1 class="main-title">Administrar Médicos</h1>
+  </header>
+
+  <main class="main-content">
+    <div class="medico-card" *ngFor="let medico of medicos; let i = index">
+      <div class="medico-info">
+        <img [src]="medico.foto_perfil" alt="Foto de perfil" class="medico-foto" />
+        <div class="medico-details">
+          <p class="medico-nombre">{{ medico.nombre }} {{ medico.apellido }}</p>
+          <p class="medico-usuario">Usuario: {{ medico.user }}</p>
+          <p class="medico-especialidad">Especialidad: {{ medico.especialidad }}</p>
+        </div>
+      </div>
+      <div class="medico-actions">
+        <button 
+          class="btn-action btn-desautorizar" 
+          *ngIf="medico.autorizado"
+          (click)="Desautorizar(i)">
+          Desautorizar
+        </button>
+        <button 
+          class="btn-action btn-autorizar" 
+          *ngIf="!medico.autorizado"
+          (click)="autorizar(i)">
+          Autorizar
+        </button>
+      </div>
+    </div>
+
+    <button class="btn-download" (click)="descargarPDF('listamed')">
+      Descargar PDF Médicos
+    </button>
+  </main>
+</div>

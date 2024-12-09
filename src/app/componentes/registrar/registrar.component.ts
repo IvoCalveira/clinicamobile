@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { Usuario } from 'src/app/clases/usuario';
 import { Router, RouterModule } from '@angular/router';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-registrar',
@@ -22,6 +23,7 @@ export class RegistrarComponent  implements OnInit {
 
   constructor(public router:Router, private us:UsuarioService) {
     //this.listaUsuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+    
   }
 
   diasSeleccionados: boolean[] = Array(5).fill(false);

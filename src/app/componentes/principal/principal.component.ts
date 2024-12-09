@@ -17,14 +17,17 @@ export class PrincipalComponent  implements OnInit {
   public listaUsuario: Usuario[] = [];
   private route: Router = new Router;
   public estaLogueado: boolean = false;
+  public usuario:Usuario = {id_usuario:0, nombre:'', password:'', apellido:'', user:'', mail:'', tipo_usuario:0, nacimiento: new Date(), dias_habiles:[], especialidad:'', foto_especialidad:'', foto_perfil:'', horario_desde:0, horario_hasta:0, autorizado:true, id_medico:0 };
 
-  constructor(public usuarioservices: UsuarioService) {
+  constructor(public router:Router, public usuarioservices: UsuarioService) {
 
 
 
     if (this.usuarioservices.usuarioLogueado.user != '') {
       this.estaLogueado = true;
       this.usuarioservices.estoyLogueado();
+      this.usuario = this.usuarioservices.usuarioLogueado; // Aquí asignamos el usuario logueado
+      console.log('Tipo de usuario:', this.usuario.tipo_usuario);
 
 
 
@@ -49,5 +52,5 @@ export class PrincipalComponent  implements OnInit {
 
   }
   ngOnInit() {}
-
+  
 }
