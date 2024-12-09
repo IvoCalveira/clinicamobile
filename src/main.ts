@@ -15,7 +15,7 @@ import { environment } from './environments/environment';
 
 
 bootstrapApplication(AppComponent, {
-  providers: [
+  providers: [ 
     importProvidersFrom(FormsModule),
     provideHttpClient(),
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

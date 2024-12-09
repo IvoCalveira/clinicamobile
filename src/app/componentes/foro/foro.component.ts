@@ -4,12 +4,13 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Firestore, collection, addDoc, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-foro',
   templateUrl: './foro.component.html',
   styleUrls: ['./foro.component.scss'],
-  imports: [FormsModule, RouterModule, CommonModule],
+  imports: [FormsModule, RouterModule, CommonModule, IonicModule],
   standalone: true,
 })
 export class ForoComponent implements OnInit {

@@ -38,4 +38,8 @@ export class UsuarioService {
     }
   }
 
+  public registrar(usuario:Usuario){
+    return this.http.post(this.APIURL  + "/insertar",usuario);
+  }
+
 }
