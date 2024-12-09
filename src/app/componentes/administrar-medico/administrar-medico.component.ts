@@ -56,9 +56,11 @@ public Desautorizar(index: number){
     );
         
 }
-descargarPDF(divID: string){
-    this.passtopdfService.listamedPDF(this.medicos);
+descargarPDF(divID: string) {
+  console.log('Intentando generar el PDF...');
+  this.passtopdfService.listamedPDF(this.medicos);
 }
+
 
   ngOnInit() {}
 

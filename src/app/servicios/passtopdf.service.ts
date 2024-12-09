@@ -1,70 +1,57 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../clases/usuario';
-import { HttpClient } from '@angular/common/http';
 import { jsPDF } from 'jspdf';
+import { Filesystem, Directory } from '@capacitor/filesystem';
+import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root', // Aquí ya está disponible como servicio global
 })
 export class PasstopdfService {
+  constructor(private fileOpener: FileOpener) {}
 
-  constructor(private http: HttpClient) { }
-  listamedPDF1(medicos:Usuario[]) {
+  async listamedPDF(medicos: Usuario[]) {
+    try {
+      console.log('Generando el PDF con la lista de médicos:', medicos);
+      // Crear el documento PDF
       const pdf = new jsPDF();
-  
+
       // Agregar título
       pdf.setFontSize(22);
       pdf.text('Lista de Médicos', 20, 20);
-  
+
       // Configuración de estilo de texto
       pdf.setFontSize(16);
       pdf.setFont('helvetica', 'normal');
-  
+
       // Generar la lista de médicos
-      let yOffset = 40; // Margen superior inicial
+      let yOffset = 40;
       medicos.forEach((medico, index) => {
-          pdf.text(`${index + 1}. ${medico.nombre} - ${medico.especialidad}`, 20, yOffset);
-          yOffset += 10; // Aumenta la distancia vertical para la siguiente línea
+        pdf.text(`${index + 1}. ${medico.nombre} - ${medico.especialidad}`, 20, yOffset);
+        yOffset += 10;
       });
-  
-      // Guardar el PDF
-    pdf.save('ListaMedicos.pdf');
-  }
-  
-  listamedPDF(medicos: Usuario[]) {
-    // Ruta al logo en assets
-    const logo = 'assets/clinica.png';
-  
-    // Leer la imagen desde la ruta y convertirla en base64
-    this.http.get(logo, { responseType: 'blob' }).subscribe((blob) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(blob);
-      reader.onloadend = () => {
-        const logoDataUrl = reader.result as string;
-  
-        // Crear el documento PDF
-        const doc = new jsPDF();
-  
-        // Agregar el logo al PDF
-        doc.addImage(logoDataUrl, 'PNG', 10, 10, 50, 20); // Ajusta las posiciones y el tamaño del logo
-  
-        // Agregar título
-        doc.setFontSize(22);
-        doc.text('Lista de Médicos', 20, 40); // Ajusta la posición del título después del logo
-  
-        // Configuración de estilo de texto
-        doc.setFontSize(16);
-        doc.setFont('helvetica', 'normal');
-  
-        // Generar la lista de médicos
-        let yOffset = 60; // Ajusta la posición inicial después del título
-        medicos.forEach((medico, index) => {
-          doc.text(`${index + 1}. ${medico.nombre} - ${medico.especialidad}`, 20, yOffset);
-          yOffset += 10; // Aumenta la distancia vertical para la siguiente línea
-        });
-  
-        // Guardar el PDF
-        doc.save('ListaMedicos.pdf');
-      };
-    });
+
+      // Convertir el PDF a base64
+      const pdfOutput = pdf.output('datauristring');
+      const base64PDF = pdfOutput.split(',')[1];
+
+      // Guardar el archivo en el dispositivo
+      const fileName = 'ListaMedicos.pdf';
+      const result = await Filesystem.writeFile({
+        path: fileName,
+        data: base64PDF,
+        directory: Directory.Documents,
+      });
+
+      console.log('PDF guardado en:', result.uri);
+
+      // Abrir el PDF con el visor nativo
+      this.fileOpener
+        .open(result.uri, 'application/pdf')
+        .then(() => console.log('Archivo abierto con éxito'))
+        .catch((error) => console.error('Error al abrir el archivo:', error));
+    } catch (error) {
+      console.error('Error al generar el PDF:', error);
+    }
   }
 }

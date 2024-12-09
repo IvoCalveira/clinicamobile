@@ -122,4 +122,23 @@ body {
     transform: scale(1.05);
     background: linear-gradient(135deg, #bb86fc, #4b0082);
   }
+
+  ion-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto; /* Habilita el scroll vertical */
+    height: 100%;
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 400px; /* Ajusta el ancho máximo para pantallas más pequeñas */
+    padding: 20px;
+  }
+  
+  .form-container {
+    margin-bottom: 50px; /* Espacio al final */
+  }
   
